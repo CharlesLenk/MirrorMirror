@@ -1,0 +1,14 @@
+mqtt:
+  urlFormat: ssl://%s.iot.us-east-1.amazonaws.com:8883
+  deviceName: MagicMirror
+  topicName: magicmirror/commands
+  clientKeyStorePath: keystore.ks
+  trustedKeyStorePath: truststore.ks
+  element: test
+
+greeting:
+  greetings:
+    - You look amazing today.
+    - It's a beautiful day!
+    - You're cool!
+    - Today's a good day.

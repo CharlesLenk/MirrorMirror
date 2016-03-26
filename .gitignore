@@ -1,9 +1,23 @@
-*.class
+# IntelliJ
+.idea
+*.iml
+
+# OSX
+.DS_Store
+
+# Keystores
+*.ks
+
+#Private config settings
+private.properties
+
+# Build Output
+target
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
