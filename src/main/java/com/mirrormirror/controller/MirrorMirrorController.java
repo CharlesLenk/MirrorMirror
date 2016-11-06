@@ -5,7 +5,6 @@ import com.mirrormirror.common.CommandResponse;
 import com.mirrormirror.service.GreetingService;
 import com.mirrormirror.service.onebusaway.remappedresponse.BusesResponse;
 import com.mirrormirror.service.onebusaway.OneBusAway;
-import com.mirrormirror.service.todolist.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -24,8 +23,6 @@ public class MirrorMirrorController {
     private OneBusAway oneBusAway;
     @Autowired
     private GreetingService greetingService;
-    @Autowired
-    private ToDoListService toDoListService;
 
     @RequestMapping(
             value = "/mirrormirror/service/onebusaway/stop/{stopid}",
@@ -34,13 +31,6 @@ public class MirrorMirrorController {
             @PathVariable(value = "stopid") String stopId
     ){
         return oneBusAway.getBusesForStop(stopId);
-    }
-
-    @RequestMapping(
-            value = "/mirrormirror/service/todolist",
-            method = RequestMethod.GET)
-    public List<String> getToDoList(){
-        return toDoListService.getTodoList();
     }
 
     @RequestMapping(
