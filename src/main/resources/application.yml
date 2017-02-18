@@ -5,10 +5,3 @@ mqtt:
   clientKeyStorePath: keystore.ks
   trustedKeyStorePath: truststore.ks
   element: test
-
-greeting:
-  greetings:
-    - You look amazing today.
-    - It's a beautiful day!
-    - You're cool!
-    - Today's a good day.

@@ -1,7 +1,13 @@
-function loadGreeting(){
-    $.get("http://localhost:8080/mirrormirror/service/greeting", function(response) {
-        $("#greeting").text(response);
-    });
+var greetings = [
+    "You look amazing today.",
+    "It's a beautiful day!",
+    "You're cool!",
+    "Today's a good day."
+];
+
+var loadGreeting = function () {
+    var index = Math.floor(Math.random() * 4);
+    $("#greeting").text(greetings[index]);
 }
 
 function showGreeting(){
@@ -15,3 +21,5 @@ function hideGreeting(){
       $("#greeting").addClass("hidden");
    }
 }
+
+var greetingIntervalId = setInterval(loadGreeting, 8640000);
