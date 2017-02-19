@@ -13,13 +13,13 @@ function addTableToMap(tableIndex, tableHtml) {
 var rotationIndex = 0;
 
 var loadTodo = function(focusListName){
-    $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "https://api.trello.com/1/boards/{trello.board}/cards?fields=name,idList,url&key={trello.key}&token={trello.token}",
+    $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "https://api.trello.com/1/boards/{trello.board}/cards?fields=name,idList&key={trello.key}&token={trello.token}",
     function(json) {
         listMap = {};
         for (index in json){
             addCardToList(json[index]['idList'], json[index]['name'])
         }
-        $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "https://api.trello.com/1/boards/{trello.board}/lists?fields=name,idList,url&key={trello.key}&token={trello.token}",
+        $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "https://api.trello.com/1/boards/{trello.board}/lists?fields=name,idList&key={trello.key}&token={trello.token}",
         function(listJson) {
             tableMap = {};
             for (index = 0; index < listJson.length; index++){
@@ -59,19 +59,23 @@ function setHighlightedTable(){
 }
 
 function rotateNextList(){
-    rotationIndex += 1;
-    if (rotationIndex >= Object.keys(tableMap).length){
-        rotationIndex = 0;
+    if (!$("#todolist").hasClass("hidden")){
+        rotationIndex += 1;
+        if (rotationIndex >= Object.keys(tableMap).length){
+            rotationIndex = 0;
+        }
+        setHighlightedTable();
     }
-    setHighlightedTable();
 }
 
 function rotatePreviousList(){
-    rotationIndex -= 1;
-    if (rotationIndex < 0){
-        rotationIndex = Object.keys(tableMap).length - 1;
+    if (!$("#todolist").hasClass("hidden")){
+        rotationIndex -= 1;
+        if (rotationIndex < 0){
+            rotationIndex = Object.keys(tableMap).length - 1;
+        }
+        setHighlightedTable();
     }
-    setHighlightedTable();
 }
 
 function showBoard(focusListName){

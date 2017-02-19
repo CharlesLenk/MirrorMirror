@@ -13,28 +13,20 @@ function connect() {
             console.log('Command: ' + command);
 
             if (command === 'hideAll'){
-                stopAndHideBusContent();
-                stopAndHideWeather();
-                stopAndHideDate();
-                hideGreeting();
+                hideAll();
             }
-            else if (command === 'showAll'){
-                stopAndHideBusContent();
+            else if (command === 'showMain'){
+                hideAll();
                 startAndShowWeather();
                 startAndShowDate();
                 showGreeting();
             }
             else if (command === "showBus"){
-                stopAndHideWeather();
-                stopAndHideDate();
-                hideGreeting();
+                hideAll();
                 showBusesForStop(responseJson["option"]);
             }
-            else if (command === "todoList"){
-                stopAndHideBusContent();
-                stopAndHideWeather();
-                stopAndHideDate();
-                hideGreeting();
+            else if (command === "showTodo"){
+                hideAll();
                 showBoard("In Progress");
             }
             else if (command === "rotateNextList"){
@@ -45,6 +37,14 @@ function connect() {
             }
         });
     });
+}
+
+function hideAll(){
+    stopAndHideBusContent();
+    stopAndHideWeather();
+    stopAndHideDate();
+    hideGreeting();
+    hideBoard();
 }
 
 $(document).ready(function() {
