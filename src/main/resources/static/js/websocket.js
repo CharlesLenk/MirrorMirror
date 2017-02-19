@@ -1,6 +1,6 @@
 var stompClient = null;
 function connect() {
-    var socket = new SockJS('/hello');
+    var socket = new SockJS('/mirror');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
@@ -29,6 +29,19 @@ function connect() {
                 stopAndHideDate();
                 hideGreeting();
                 showBusesForStop(responseJson["option"]);
+            }
+            else if (command === "todoList"){
+                stopAndHideBusContent();
+                stopAndHideWeather();
+                stopAndHideDate();
+                hideGreeting();
+                showBoard("In Progress");
+            }
+            else if (command === "rotateNextList"){
+                rotateNextList();
+            }
+            else if (command === "rotatePreviousList"){
+                rotatePreviousList();
             }
         });
     });

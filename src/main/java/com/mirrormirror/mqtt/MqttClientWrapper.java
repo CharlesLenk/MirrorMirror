@@ -1,4 +1,4 @@
-package com.mirrormirror.service.mqtt;
+package com.mirrormirror.mqtt;
 
 import com.mirrormirror.common.Util;
 import com.mirrormirror.config.MqttProperties;

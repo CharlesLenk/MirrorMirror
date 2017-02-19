@@ -1,6 +1,3 @@
-#buses {
-}
-
 #buses table {
     margin-right:auto;
     margin-left:auto;
@@ -18,8 +15,41 @@
     font-size: 0.45em;
 }
 
-#buses .bussTitle {
+.bussTitle {
     text-align: center;
     font-size: 5em;
     padding: 0em 0em 0.2em 1em;
+}
+
+.listTable {
+    margin-right:auto;
+    margin-left:auto;
+    font-size: 4em;
+}
+
+.listTable td {
+    padding: 0em 0em 0.1em 0.5em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.column {
+    display: table-cell;
+}
+
+.unfocusedTable {
+    font-size: 0.5em;
+    color: transparent;
+    text-shadow: 0 0 3px rgba(255,255,255,1);
+}
+
+.unfocusedTable td {
+    border-bottom: 1px solid rgba(221, 221, 221, 0.25);
 }
