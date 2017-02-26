@@ -5,10 +5,12 @@ import com.mirrormirror.common.CommandResponse;
 import com.mirrormirror.config.PrivatePropConfig;
 import com.mirrormirror.mqtt.MqttProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -49,5 +51,14 @@ public class MirrorMirrorController {
     ){
         mqttProcessor.sendCommand(new CommandResponse(command, option));
         return ResponseEntity.ok().build();
+    }
+
+    @RequestMapping(
+            value = "/mirrormirror/reboot",
+            method = RequestMethod.GET
+    )
+    @ResponseStatus(value = HttpStatus.OK)
+    public void reboot() throws IOException{
+        Runtime.getRuntime().exec("sudo reboot now");
     }
 }

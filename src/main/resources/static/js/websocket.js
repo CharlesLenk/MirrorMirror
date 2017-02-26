@@ -21,11 +21,14 @@ function connect() {
                 startAndShowDate();
                 showGreeting();
             }
+            else if (command === 'reboot'){
+                $.get("http://localhost:8080/mirrormirror/reboot");
+            }
             else if (command === "showBus"){
                 hideAll();
                 showBusesForStop(responseJson["option"]);
             }
-             else if (command === "showStops"){
+            else if (command === "showStops"){
                 hideAll();
                 getStopsForAddress(responseJson["option"]);
             }

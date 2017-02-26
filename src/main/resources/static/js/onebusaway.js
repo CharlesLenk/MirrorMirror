@@ -56,6 +56,7 @@ var directions = {
 function getStopsForAddress(address){
     $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key={googlemaps.key}",
     function(locationJson) {
+        console.log(locationJson);
         var lat = locationJson["results"][0]["geometry"]["location"]["lat"];
         var lng = locationJson["results"][0]["geometry"]["location"]["lng"];
         var formattedAddress = locationJson["results"][0]["formatted_address"].split(",")[0];
