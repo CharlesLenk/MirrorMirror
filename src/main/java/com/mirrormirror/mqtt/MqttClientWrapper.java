@@ -17,6 +17,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import java.security.KeyStore;
 import java.security.SecureRandom;
+import java.util.UUID;
 
 @Component
 public class MqttClientWrapper {
@@ -48,7 +49,11 @@ public class MqttClientWrapper {
         connectOptions = new MqttConnectOptions();
         connectOptions.setSocketFactory(sslContext.getSocketFactory());
 
-        mqttClient = new MqttClient(String.format(properties.getUrlFormat(), mqttId), properties.getDeviceName(), new MemoryPersistence());
+        // Client names must be unique for a given MQTT connection
+        String deviceName = properties.getDeviceName() + "-" + UUID.randomUUID().toString();
+        System.out.println("Initialized MQTT client with name: " + deviceName);
+
+        mqttClient = new MqttClient(String.format(properties.getUrlFormat(), mqttId), deviceName, new MemoryPersistence());
     }
 
     public void connect(){

@@ -25,6 +25,10 @@ function connect() {
                 hideAll();
                 showBusesForStop(responseJson["option"]);
             }
+             else if (command === "showStops"){
+                hideAll();
+                getStopsForAddress(responseJson["option"]);
+            }
             else if (command === "showTodo"){
                 hideAll();
                 showBoard("In Progress");

@@ -4,4 +4,3 @@ mqtt:
   topicName: magicmirror/commands
   clientKeyStorePath: keystore.ks
   trustedKeyStorePath: truststore.ks
-  element: test
