@@ -1,8 +1,10 @@
 var busesUpdateIntervalId;
 
 var loadFunction = function loadOneBusAway(stopId){
-    $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_" + stopId + ".json?key={oba.key}",
+    stopId = "1_" + stopId;
+    $.post("http://localhost:8080/mirrormirror/service/doAgentGet", "http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/" + stopId + ".json?key={oba.key}",
     function(json) {
+        console.log(json);
         var date = new Date();
 
         var stopName;
