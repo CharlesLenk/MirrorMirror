@@ -1,9 +1,7 @@
 package com.mirrormirror.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.mirrormirror.mqtt.CommandResponse;
 import com.mirrormirror.config.PrivatePropConfig;
-import com.mirrormirror.mqtt.MqttProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

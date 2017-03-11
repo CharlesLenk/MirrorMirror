@@ -31,8 +31,8 @@ public class MqttProcessor implements MqttCallback {
     @Override
     public void connectionLost(Throwable cause) {
         System.out.println("MQTT connection lost with error: " + cause.getMessage());
-        template.convertAndSend(COMMAND_TOPIC,
-                new CommandResponse("showError", "Lost connection with error: " + cause.getMessage()));
+        template.convertAndSend(COMMAND_TOPIC, "{\"command\":\"showError\", " +
+                "\"option\":\"Lost connection with error: " + cause.getMessage() + "\"}");
 
         while (!mqttClient.isConnected()){
             mqttClient.connect();
@@ -43,13 +43,7 @@ public class MqttProcessor implements MqttCallback {
     @Override
     public void messageArrived(String topic, MqttMessage mqttMessage) {
         System.out.println("Received message: " + mqttMessage.toString());
-        try {
-            CommandResponse command = mapper.readValue(mqttMessage.toString(), CommandResponse.class);
-            template.convertAndSend(COMMAND_TOPIC, command);
-        }
-        catch (IOException e){
-            System.out.println("Failed to parse MQTT message as command: " + mqttMessage.toString() + "\nError: " + e.getMessage());
-        }
+        template.convertAndSend(COMMAND_TOPIC, mqttMessage.toString());
     }
 
     @Override
