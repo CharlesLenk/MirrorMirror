@@ -1,8 +1,6 @@
 package com.mirrormirror.mqtt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mirrormirror.common.Util;
-import com.mirrormirror.common.CommandResponse;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -16,15 +14,16 @@ import java.io.IOException;
 public class MqttProcessor implements MqttCallback {
     private static final String COMMAND_TOPIC = "/topic/mirrormirror/commands";
 
-    @Autowired
     private SimpMessagingTemplate template;
-    @Autowired
     private ObjectMapper mapper;
-    @Autowired
     private MqttClientWrapper mqttClient;
 
-    @PostConstruct
-    public void init() {
+    @Autowired
+    public MqttProcessor(MqttClientWrapper mqttClient, ObjectMapper mapper, SimpMessagingTemplate template) {
+        this.mqttClient = mqttClient;
+        this.mapper = mapper;
+        this.template = template;
+
         mqttClient.setCallback(this);
         mqttClient.connect();
     }
@@ -56,9 +55,5 @@ public class MqttProcessor implements MqttCallback {
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
         // App is read only
-    }
-
-    public void sendCommand(CommandResponse command){
-        template.convertAndSend(COMMAND_TOPIC, command);
     }
 }

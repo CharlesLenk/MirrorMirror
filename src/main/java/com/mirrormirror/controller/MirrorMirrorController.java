@@ -1,7 +1,7 @@
 package com.mirrormirror.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.mirrormirror.common.CommandResponse;
+import com.mirrormirror.mqtt.CommandResponse;
 import com.mirrormirror.config.PrivatePropConfig;
 import com.mirrormirror.mqtt.MqttProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,6 @@ import java.net.URLDecoder;
 
 @RestController
 public class MirrorMirrorController {
-    @Autowired
-    private MqttProcessor mqttProcessor;
     @Autowired
     private PrivatePropConfig properties;
 
@@ -40,17 +38,6 @@ public class MirrorMirrorController {
             url = url.replace(key, properties.getApikeys().get(key));
         }
         return url;
-    }
-
-    @RequestMapping(
-            value = "/mirrormirror/service/command/{command}/option/{option}",
-            method = RequestMethod.GET)
-    public ResponseEntity sendCommand(
-            @PathVariable(value = "command") String command,
-            @PathVariable(value = "option") String option
-    ){
-        mqttProcessor.sendCommand(new CommandResponse(command, option));
-        return ResponseEntity.ok().build();
     }
 
     @RequestMapping(

@@ -1,11 +1,10 @@
-package com.mirrormirror.common;
+package com.mirrormirror.mqtt;
 
-import com.google.common.base.Stopwatch;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
 import java.security.KeyStore;
-import java.util.concurrent.TimeUnit;
+import java.util.Date;
 
 public class Util {
     public static KeyStore readKeyStore(String keyStorePath, char[] keyStorePassword) throws Exception{
@@ -22,8 +21,8 @@ public class Util {
     }
 
     public static void sleepForMs(Integer ms){
-        Stopwatch timer = Stopwatch.createStarted();
-        Long timeRemaining = Math.max(0, ms - timer.elapsed(TimeUnit.MILLISECONDS));
+        final Date startDate = new Date();
+        Long timeRemaining = Math.max(0, ms - (startDate.getTime() - new Date().getTime()));
         while (timeRemaining > 0){
             try{
                 Thread.sleep(timeRemaining);
@@ -32,7 +31,7 @@ public class Util {
                 // Goes back to sleep on early wake
             }
             finally {
-                timeRemaining = Math.max(0, ms - timer.elapsed(TimeUnit.MILLISECONDS));
+                timeRemaining = Math.max(0, ms - (startDate.getTime() - new Date().getTime()));
             }
         }
     }

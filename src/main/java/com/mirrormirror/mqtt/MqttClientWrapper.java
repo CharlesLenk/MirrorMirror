@@ -1,6 +1,5 @@
 package com.mirrormirror.mqtt;
 
-import com.mirrormirror.common.Util;
 import com.mirrormirror.config.MqttProperties;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
@@ -21,18 +19,16 @@ import java.util.UUID;
 
 @Component
 public class MqttClientWrapper {
-    @Value("${keystore.password}")
-    private char[] password;
-    @Value("${aws.mqtt.id}")
-    private String mqttId;
-    @Autowired
-    private MqttProperties properties;
-
     private MqttConnectOptions connectOptions;
     private MqttClient mqttClient;
+    private String topicName;
 
-    @PostConstruct
-    public void init() throws Exception{
+    @Autowired
+    public MqttClientWrapper(MqttProperties properties,
+                             @Value("${keystore.password}") char[] password,
+                             @Value("${aws.mqtt.id}") String mqttId) throws Exception {
+        this.topicName = properties.getTopicName();
+
         // Load CA cert
         TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
         KeyStore keyStore = Util.readKeyStore(properties.getTrustedKeyStorePath(), password);
@@ -59,7 +55,7 @@ public class MqttClientWrapper {
     public void connect(){
         try {
             mqttClient.connect(connectOptions);
-            mqttClient.subscribe(properties.getTopicName());
+            mqttClient.subscribe(topicName);
             System.out.println("MQTT client connected.");
         }
         catch (MqttException e){

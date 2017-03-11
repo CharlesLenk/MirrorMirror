@@ -1,13 +1,12 @@
-package com.mirrormirror.common;
+package com.mirrormirror.mqtt;
 
 public class CommandResponse {
     private String command;
     private String option;
 
-    public CommandResponse(){}
-
     public CommandResponse(String command){
         this.command = command;
+        this.option = option;
     }
 
     public CommandResponse(String command, String option){
@@ -19,15 +18,7 @@ public class CommandResponse {
         return command;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
     public String getOption() {
         return option;
-    }
-
-    public void setOption(String option) {
-        this.option = option;
     }
 }
