@@ -51,6 +51,8 @@ var weatherCodeMap = {
     46:'sleet'
 }
 
+var skycons = new Skycons({"color": "white"});
+
 var updateWeather = function () {
     $.simpleWeather({
         location: '',
@@ -70,7 +72,6 @@ var updateWeather = function () {
             }
             console.log(animation);
 
-            var skycons = new Skycons({"color": "white"});
             skycons.remove("weather-icon");
             skycons.add("weather-icon", animation);
             skycons.play();
