@@ -56,7 +56,7 @@ var skycons = new Skycons({"color": "white"});
 var updateWeather = function () {
     $.simpleWeather({
         location: '',
-        woeid: '2490383',
+        woeid: '2362031',
         unit: 'f',
         success: function(weather) {
             html = '<canvas id="weather-icon" width="128" height="128"></canvas><h2> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
