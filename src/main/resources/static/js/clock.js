@@ -14,7 +14,7 @@ function startAndShowDate(){
         $("#date").removeClass("hidden");
         datetime = $('#date');
         update();
-        dateUpdateId = setInterval(update, 10000);
+        dateUpdateId = setInterval(update, 15000);
     }
 }
 

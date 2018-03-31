@@ -68,12 +68,11 @@ var updateWeather = function () {
 
             var animation = weatherCodeMap[parseInt(weather.code)];
             if (animation == null){
-            animation = 'clear-day';
+                animation = 'clear-day';
             }
             console.log(animation);
 
-            skycons.remove("weather-icon");
-            skycons.add("weather-icon", animation);
+            skycons.set("weather-icon", animation);
             skycons.play();
         },
         error: function(error) {
@@ -96,4 +95,3 @@ function stopAndHideWeather(){
       clearInterval(weatherUpdateIntervalId);
    }
 }
-
