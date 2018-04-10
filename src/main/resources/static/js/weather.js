@@ -72,6 +72,7 @@ var updateWeather = function () {
             }
             console.log(animation);
 
+            skycons.pause();
             skycons.set("weather-icon", animation);
             skycons.play();
         },
