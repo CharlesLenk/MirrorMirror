@@ -72,9 +72,7 @@ var updateWeather = function () {
             }
             console.log(animation);
 
-            //skycons.pause();
-            //skycons.set("weather-icon", animation);
-            //skycons.play();
+            skycons.set("weather-icon", animation);
         },
         error: function(error) {
             $("#weather").html('<p>'+error+'</p>');
