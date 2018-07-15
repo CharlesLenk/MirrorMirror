@@ -73,6 +73,7 @@ var updateWeather = function () {
             console.log(animation);
 
             skycons.set("weather-icon", animation);
+            skycons.play();
         },
         error: function(error) {
             $("#weather").html('<p>'+error+'</p>');
@@ -83,7 +84,7 @@ var updateWeather = function () {
 function startAndShowWeather(){
     if ($("#weather").hasClass("hidden")){
         updateWeather();
-        weatherUpdateIntervalId = setInterval(updateWeather, 300000);
+        weatherUpdateIntervalId = setInterval(updateWeather, 600000);
         $("#weather").removeClass("hidden");
     }
 }
