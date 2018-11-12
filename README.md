@@ -31,5 +31,5 @@ Update PI autostart
 @unclutter -idle 0
 
 # Run startup script on boot
-@sh /home/pi/magicmirror/startup.sh > /home/pi/startup-log.txt
+@sh /home/pi/mirror/startup.sh > /home/pi/startup-log.txt
 ```
