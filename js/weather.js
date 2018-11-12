@@ -59,7 +59,7 @@ var updateWeather = function () {
         woeid: '2362031',
         unit: 'f',
         success: function(weather) {
-            html = '<canvas id="weather-icon" width="128" height="128"></canvas><h2> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+            html = '<canvas id="weather-icon" width="150" height="150"></canvas><h2> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
             html += '<div id="region">'+weather.city+', '+weather.region+'</div>';
             html += '<div>'+weather.currently+'</div>';
             html += '<div>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</div>';
@@ -82,16 +82,6 @@ var updateWeather = function () {
 };
 
 function startAndShowWeather(){
-    if ($("#weather").hasClass("hidden")){
-        updateWeather();
-        weatherUpdateIntervalId = setInterval(updateWeather, 600000);
-        $("#weather").removeClass("hidden");
-    }
-}
-
-function stopAndHideWeather(){
-   if (!$("#weather").hasClass("hidden")){
-      $("#weather").addClass("hidden");
-      clearInterval(weatherUpdateIntervalId);
-   }
+    updateWeather();
+    weatherUpdateIntervalId = setInterval(updateWeather, 600000);
 }

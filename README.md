@@ -1,5 +1,35 @@
 # MirrorMirror
 
-Very much still in progress. Real readme still TBD. If you see any improvement (even small ones), please open a PR and I'll take a look at merging it.
+Install Unclutter
+```
+apt-get install unclutter
+```
 
-All vendor code is labled with the appropriate license. Origional code for this project is release under the MIT License.
+Update PI Configuration
+```
+sudo nano /boot/config.txt
+```
+```
+# 1=90 degrees; 3 = 270 degrees
+display_rotate=3
+```
+
+Update PI autostart
+```
+~/.config/lxsession/LXDE-pi/autostart
+```
+```
+# Disable screensaver
+#@xscreensaver -no-splash
+
+# Disable power saving
+@xset s noblank
+@xset s off
+@xset -dpms
+
+# Hide mouse pointer
+@unclutter -idle 0
+
+# Run startup script on boot
+@sh /home/pi/magicmirror/startup.sh > /home/pi/startup-log.txt
+```

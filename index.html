@@ -10,40 +10,35 @@
         <script src="js/vendor/jquery-1.11.3.min.js"></script>
         <script src="js/vendor/jquery.simpleWeather.min.js"></script>
         <script src="js/vendor/moment.min.js"></script>
-        <script src="js/vendor/sockjs.min.js"></script>
-        <script src="js/vendor/stomp.min.js"></script>
         <script src="js/vendor/skycons.js"></script>
 
-        <script src="js/clock.js"></script>
         <script src="js/weather.js"></script>
-        <script src="js/greeting.js"></script>
-        <script src="js/websocket.js"></script>
         <script src="js/onebusaway.js"></script>
         <script src="js/trello.js"></script>
         <script src="js/showdefaultcontent.js"></script>
 
-        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/weather.css">
         <link rel="stylesheet" href="css/buses.css">
         <link rel="stylesheet" href="css/weathericons.css">
+        <link rel="stylesheet" href="css/datetime.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neucha" type="text/css">
     </head>
     <body id="body">
-        <div id="date", class="hidden">
+        <div id="dateTime">
+            <div id="date"></div>
+            <div id="time"></div>
+            <div id="buses"></div>
         </div>
 
-        <div id="weather", class="hidden">
+        <div id="weather">
         </div>
 
-        <div id="buses", class="hidden">
+        <div id="todolist" class="hidden">
         </div>
 
-        <div id="todolist", class="hidden">
-        </div>
-
-        <p id="greeting", class="hidden">
+        <p id="greeting">
         </p>
     </body>
 </html>

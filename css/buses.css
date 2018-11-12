@@ -1,0 +1,55 @@
+#buses {
+    padding: 1em 0em 0em 2em;
+}
+
+#buses table {
+    float: left;
+    font-size: 2em;
+    width: 100%;
+    border-spacing: 0;
+    opacity: 0.85;
+}
+
+#buses td {
+    padding: 0em 0em 0.1em 0em;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+}
+
+.routeNumber {
+    text-align: left;
+}
+
+.nameColumn {
+    font-size: 0.75em;
+    text-align: left;
+}
+
+.bussTitle {
+    text-align: left;
+    font-size: 1em;
+    padding: 0em 0em 0.2em 0em;
+}
+
+.listTable {
+    margin-right:auto;
+    margin-left:auto;
+    font-size: 1.5em;
+}
+
+.listTable td {
+    padding: 0em 0em 0.1em 0.5em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.column {
+    display: table-cell;
+}
