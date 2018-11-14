@@ -7,7 +7,7 @@ html {
 body {
     background-color: #000000;
     color: #F8F8FF;
-} 
+}
 
 canvas {
     display: block;
@@ -19,6 +19,6 @@ canvas {
 section {
     width: 90%;
     margin: auto;
-    height:600px;
+    height: 600px;
     padding: 10px;
 }

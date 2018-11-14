@@ -1,57 +1,57 @@
 body {
-  padding: 1em 0 0 0;
-  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding: 1em 0 0 0;
+    font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #weather {
-  width: 500px;
-  height:600px;
-  float:right;
-  text-align: right;
+    width: 500px;
+    height: 600px;
+    float: right;
+    text-align: right;
+    margin-right: 2em;
 }
 
 i {
-  color: #F8F8FF;
-  font-family: weather;
-  font-size: 150px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.0;
+    color: #F8F8FF;
+    font-size: 150px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.0;
 }
 
 #weather h2 {
-  margin: 0 0 0 0;
-  color: #F8F8FF;
-  font-size: 100px;
-  font-weight: 300;
+    margin: 0 0 0 0;
+    color: #F8F8FF;
+    font-size: 100px;
+    font-weight: 300;
 }
 
 #weather div {
-  height: 20px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5em;
-  padding: 16px;
+    height: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    padding: 16px 0 16px 16px;
 }
 
 #weather table {
-  text-align: left;
-  font-size: 1em;
-  float: right;
-  padding: 1em 0;
+    text-align: left;
+    font-size: 1em;
+    float: right;
+    padding: 1em 0 0 0;
 }
 
 #weather td {
-  padding: 0 .25em;
+    padding: 0 0 0 .25em;
 }
 
 .low {
-  opacity: 0.50;
+    opacity: 0.60;
 }
 
 #region {
- font-size: 5em; 
+    font-size: 5em;
 }
 
 #weather-icon {
-    margin: 0 0 0 6em;
+    margin: 0 0 0 7em;
 }

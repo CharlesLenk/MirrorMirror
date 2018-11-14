@@ -1,16 +1,15 @@
-
-
-$(document).ready(function() {
+$(document).ready(function () {
     updateDate();
     setInterval(updateDate, 15000);
 
-    startAndShowWeather();
+    updateWeather();
+    setInterval(updateWeather, 600000);
 
     loadGreeting();
     setInterval(loadGreeting, 8640000);
 
     showBusesForStops([67655, 67640]);
-    setInterval(showBusesForStops, 30000, [67655, 67640]);
+    setInterval(showBusesForStops, 60000, [67655, 67640]);
 });
 
 function updateDate() {
