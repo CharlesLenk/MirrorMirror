@@ -1,25 +1,5 @@
-# IntelliJ
+# WebStorm
 .idea
-*.iml
 
 # OSX
 .DS_Store
-
-# Keystores
-*.ks
-
-#Private config settings
-private.properties
-
-# Build Output
-target
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*

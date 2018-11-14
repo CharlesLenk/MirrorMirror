@@ -48,8 +48,8 @@ var weatherCodeMap = {
     44:'partly-cloudy-day',
     45:'sleet',
     46:'snow',
-    46:'sleet'
-}
+    47:'sleet'
+};
 
 var skycons = new Skycons({"color": "white"});
 
@@ -59,12 +59,37 @@ var updateWeather = function () {
         woeid: '2362031',
         unit: 'f',
         success: function(weather) {
-            html = '<canvas id="weather-icon" width="150" height="150"></canvas><h2> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+            html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
             html += '<div id="region">'+weather.city+', '+weather.region+'</div>';
             html += '<div>'+weather.currently+'</div>';
             html += '<div>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</div>';
-            html += '<div><i class="fa fa-angle-up"></i>  High '+weather.high + ' <i class="fa fa-angle-down"></i>  Low ' + weather.low + '</div>'
-            $("#weather").html(html);
+            html += '<div><i class="fa fa-angle-up"></i>  High '+weather.high + ' <i class="fa fa-angle-down"></i>  Low ' + weather.low + '</div>';
+
+            html += '<div><table>';
+            for (var i = 1; i < 6; i++) {
+                html += '<tr>';
+                html += '<td>'+weather.forecast[i].day + '.</td>';
+                console.log("weather-icon-" + i);
+                let canvasName = "weather-icon-" + i;
+                html += '<td><canvas id="' + canvasName + '" width="25" height="25"></canvas></td>';
+                html += '<td>' + weather.forecast[i].high + '</td>';
+                html += '<td class="low">' + weather.forecast[i].low + '</td>';
+                html += '</tr>';
+            }
+            html += '</table></div>';
+
+            $("#weatherDynamic").html(html);
+
+            for (var i = 1; i < 6; i++) {
+                var animatio = weatherCodeMap[parseInt(weather.forecast[i].code)];
+                if (animatio == null){
+                    animatio = 'clear-day';
+                }
+                console.log(animatio);
+                console.log("weather-icon-" + i);
+                skycons.set("weather-icon-" + i, animatio);
+                skycons.play();
+            }
 
             var animation = weatherCodeMap[parseInt(weather.code)];
             if (animation == null){
@@ -76,7 +101,7 @@ var updateWeather = function () {
             skycons.play();
         },
         error: function(error) {
-            $("#weather").html('<p>'+error+'</p>');
+            $("#weatherDynamic").html('<p>'+error+'</p>');
         }
     });
 };

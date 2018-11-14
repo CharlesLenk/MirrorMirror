@@ -5,9 +5,10 @@
 #buses table {
     float: left;
     font-size: 2em;
-    width: 100%;
+    width: 90%;
     border-spacing: 0;
     opacity: 0.85;
+    padding: 1em 0em 0em 0em;
 }
 
 #buses td {
@@ -22,7 +23,7 @@
 
 .nameColumn {
     font-size: 0.75em;
-    text-align: left;
+    text-align: center;
 }
 
 .bussTitle {
