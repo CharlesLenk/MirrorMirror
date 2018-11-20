@@ -2,6 +2,7 @@ $(document).ready(function () {
     updateDate();
     setInterval(updateDate, 15000);
 
+    initWeather();
     updateWeather();
     setInterval(updateWeather, 600000);
 

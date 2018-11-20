@@ -20,17 +20,21 @@ i {
 }
 
 #weather h2 {
+    width: 50%;
     margin: 0 0 0 0;
     color: #F8F8FF;
     font-size: 100px;
     font-weight: 300;
+    display: inline;
 }
 
 #weather div {
     height: 20px;
+    width: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
-    padding: 16px 0 16px 16px;
+    padding: 8px 0 16px 16px;
+    display: inline-block;
 }
 
 #weather table {
@@ -53,5 +57,5 @@ i {
 }
 
 #weather-icon {
-    margin: 0 0 0 7em;
+    margin: -1em 0 0 5em;
 }

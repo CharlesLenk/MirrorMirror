@@ -51,42 +51,46 @@ var weatherCodeMap = {
 
 var skycons = new Skycons({"color": "white"});
 
+
+function initWeather() {
+    let html = '';
+    for (var i = 1; i <= 5; i++) {
+        let name = "weather-row-" + i + "-";
+        html += '<tr>';
+        html += '<td id="' + (name + "day") + '">' + name + '</td>';
+        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="30" height="30"></canvas></td>';
+        html += '<td id="' + (name + "high") + '"></td>';
+        html += '<td class="low" id="' + (name + "low") + '"></td>';
+        html += '</tr>';
+    }
+    $("#weatherTable").html(html);
+}
+
 function updateWeather() {
     $.simpleWeather({
         location: '',
         woeid: '2362031',
         unit: 'f',
         success: function (weather) {
-            let html = '<h2>' + weather.temp + '&deg;' + weather.units.temp + '</h2>';
-            html += '<div id="region">' + weather.city + ', ' + weather.region + '</div>';
+            $("#temperature").html(weather.temp + '&deg;' + weather.units.temp);
+            let html = '<div id="region">' + weather.city + ', ' + weather.region + '</div>';
             html += '<div>' + weather.currently + '</div>';
             html += '<div>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</div>';
             html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i>  Low ' + weather.low + '</div>';
-
-            html += '<div><table>';
-            for (var i = 1; i < 6; i++) {
-                html += '<tr>';
-                html += '<td>' + weather.forecast[i].day + '.</td>';
-
-                let canvasName = "weather-icon-" + i;
-                html += '<td><canvas id="' + canvasName + '" width="30" height="30"></canvas></td>';
-                html += '<td>' + weather.forecast[i].high + '</td>';
-                html += '<td class="low">' + weather.forecast[i].low + '</td>';
-                html += '</tr>';
-            }
-            html += '</table></div>';
-
             $("#weatherDynamic").html(html);
 
             let animation;
-            for (var i = 1; i < 6; i++) {
+            for (var i = 1; i <= 5; i++) {
+                let name = "weather-row-" + i + "-";
+                $("#" + name + "day").text(weather.forecast[i].day + ".");
+                $("#" + name + "high").text(weather.forecast[i].high);
+                $("#" + name + "low").text(weather.forecast[i].low);
+
                 animation = weatherCodeMap[parseInt(weather.forecast[i].code)];
                 if (animation == null) {
                     animation = 'clear-day';
                 }
-                console.log(animation);
-                console.log("weather-icon-" + i);
-                skycons.set("weather-icon-" + i, animation);
+                skycons.set(name + "icon-forecast", animation);
                 skycons.play();
             }
 
@@ -94,8 +98,6 @@ function updateWeather() {
             if (animation == null) {
                 animation = 'clear-day';
             }
-            console.log(animation);
-
             skycons.set("weather-icon", animation);
             skycons.play();
         },
