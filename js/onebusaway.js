@@ -52,6 +52,11 @@ function loadOneBusAway(stopId, routeFilter) {
                     html += '</tr>';
                 }
             }
+            if (matchCount === 0) {
+                html += '<tr>';
+                html += '<td><div class="routeNumber">' + "No Arrivals" + '</div></td>';
+                html += '</tr>';
+            }
 
             html += '</table>';
             stopElement.html(html);

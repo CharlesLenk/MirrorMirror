@@ -2,23 +2,45 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    box-sizing: border-box;
+}
+
+html *,
+html *:before,
+html *:after {
+    box-sizing: inherit;
 }
 
 body {
     background-color: #000000;
     color: #F8F8FF;
+    padding: 1em;
+    font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-canvas {
-    display: block;
+#dateTime {
     float: left;
-    margin-left: 8px;
-    margin-top: 8px;
+    width: 400px;
+    margin: 1em 0 0 0;
 }
 
-section {
-    width: 90%;
-    margin: auto;
-    height: 600px;
-    padding: 10px;
+#date {
+    font-size: 2.5em;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+#time {
+    font-size: 4em;
+    padding: 0;
+    margin-left: 30px;
+}
+
+#greeting {
+    font-family: 'Neucha', cursive;
+    text-align: center;
+    font-size: 3em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

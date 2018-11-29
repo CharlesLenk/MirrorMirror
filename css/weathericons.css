@@ -1,11 +1,8 @@
-html {
-    box-sizing: border-box;
-}
-
-html *,
-html *:before,
-html *:after {
-    box-sizing: inherit;
+canvas {
+    display: block;
+    float: left;
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
 .cloud {

@@ -1,5 +1,5 @@
 #buses {
-    padding: 1em 0em 0em 2em;
+    padding: 1em 0 0 2em;
 }
 
 #buses table {
@@ -22,7 +22,7 @@
 
 .nameColumn {
     font-size: 0.75em;
-    text-align: center;
+    text-align: left;
 }
 
 .bussTitle {

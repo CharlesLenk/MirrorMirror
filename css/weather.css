@@ -1,8 +1,3 @@
-body {
-    padding: 1em 0 0 0;
-    font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
 #weather {
     width: 500px;
     height: 600px;
@@ -39,7 +34,7 @@ i {
 
 #weather table {
     text-align: left;
-    font-size: 1em;
+    font-size: 1.25em;
     float: right;
     padding: 1em 0 0 0;
 }
@@ -57,5 +52,5 @@ i {
 }
 
 #weather-icon {
-    margin: -1em 0 0 5em;
+    margin: -0.5em 0 0 5em;
 }
