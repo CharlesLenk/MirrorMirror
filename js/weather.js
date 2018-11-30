@@ -57,7 +57,7 @@ function initWeather() {
         let name = "weather-row-" + i + "-";
         html += '<tr>';
         html += '<td id="' + (name + "day") + '">' + name + '</td>';
-        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="35" height="35"></canvas></td>';
+        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="40" height="40"></canvas></td>';
         html += '<td id="' + (name + "high") + '"></td>';
         html += '<td class="low" id="' + (name + "low") + '"></td>';
         html += '</tr>';
@@ -75,7 +75,7 @@ function updateWeather() {
             let html = '<div id="region">' + weather.city + '</div>';
             html += '<div>' + weather.currently + '</div>';
             html += '<div>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</div>';
-            html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i>  Low ' + weather.low + '</div>';
+            html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i> Low ' + weather.low + '</div>';
             $("#weatherDynamic").html(html);
 
             let animation;

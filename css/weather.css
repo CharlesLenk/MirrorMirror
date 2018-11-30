@@ -6,14 +6,6 @@
     margin-right: 2em;
 }
 
-i {
-    color: #F8F8FF;
-    font-size: 150px;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.0;
-}
-
 #weather h2 {
     width: 50%;
     margin: 0 0 0 0;
@@ -40,7 +32,7 @@ i {
 }
 
 #weather td {
-    padding: 0 0 0 .25em;
+    padding: .25em 0 0 .5em;
 }
 
 .low {
