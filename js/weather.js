@@ -72,8 +72,7 @@ function updateWeather(location, apiKey) {
         unit: 'f',
         success: function (weather) {
             $("#temperature").html(weather.temp + '&deg;' + weather.units.temp.toUpperCase());
-            let html = '<div id="region">' + weather.city + '</div>';
-            html += '<div>' + weather.currently + '</div>';
+            let html = '<div>' + weather.currently + '</div>';
             html += '<div>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</div>';
             html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i> Low ' + weather.low + '</div>';
             $("#weatherDynamic").html(html);
