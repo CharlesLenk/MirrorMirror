@@ -3,7 +3,7 @@ $(document).ready(function () {
     setInterval(updateDate, 15000);
 
     initWeather();
-    updateWeather();
+    updateWeather('47.6101,-122.2015', darkSkyApiKey);
     setInterval(updateWeather, 600000);
 
     loadGreeting();

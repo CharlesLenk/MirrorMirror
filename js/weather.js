@@ -65,13 +65,13 @@ function initWeather() {
     $("#weatherTable").html(html);
 }
 
-function updateWeather() {
+function updateWeather(location, apiKey) {
     $.simpleWeather({
-        location: '',
-        woeid: '2362031',
+        location: location,
+        apiKey: apiKey,
         unit: 'f',
         success: function (weather) {
-            $("#temperature").html(weather.temp + '&deg;' + weather.units.temp);
+            $("#temperature").html(weather.temp + '&deg;' + weather.units.temp.toUpperCase());
             let html = '<div id="region">' + weather.city + '</div>';
             html += '<div>' + weather.currently + '</div>';
             html += '<div>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</div>';
@@ -84,12 +84,7 @@ function updateWeather() {
                 $("#" + name + "day").text(weather.forecast[i].day + ".");
                 $("#" + name + "high").text(weather.forecast[i].high);
                 $("#" + name + "low").text(weather.forecast[i].low);
-
-                animation = weatherCodeMap[parseInt(weather.forecast[i].code)];
-                if (animation == null) {
-                    animation = 'clear-day';
-                }
-                skycons.set(name + "icon-forecast", animation);
+                skycons.set(name + "icon-forecast", weather.forecast[i].icon);
                 skycons.play();
             }
 
@@ -101,6 +96,7 @@ function updateWeather() {
             skycons.play();
         },
         error: function (error) {
+            console.error(error);
             $("#weatherDynamic").html('<p>' + error + '</p>');
         }
     });
