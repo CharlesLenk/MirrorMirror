@@ -25,8 +25,7 @@ function updateWeather(location, apiKey) {
             html += '<div>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</div>';
             html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i> Low ' + weather.low + '</div>';
             $("#weatherDynamic").html(html);
-
-            let animation;
+            
             for (var i = 1; i <= 5; i++) {
                 let name = "weather-row-" + i + "-";
                 $("#" + name + "day").text(weather.forecast[i].day + ".");
@@ -35,12 +34,7 @@ function updateWeather(location, apiKey) {
                 skycons.set(name + "icon-forecast", weather.forecast[i].icon);
                 skycons.play();
             }
-
-            animation = weatherCodeMap[parseInt(weather.code)];
-            if (animation == null) {
-                animation = 'clear-day';
-            }
-            skycons.set("weather-icon", animation);
+            skycons.set("weather-icon", weather.icon);
             skycons.play();
         },
         error: function (error) {
