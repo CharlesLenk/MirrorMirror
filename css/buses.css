@@ -4,8 +4,8 @@
 
 #buses table {
     float: left;
-    font-size: 2em;
-    width: 90%;
+    font-size: 1.5em;
+    width: 95%;
     border-spacing: 0;
     padding: 1em 0 0 0;
     text-align: left;
@@ -22,5 +22,6 @@
 }
 
 .nameColumn {
-    font-size: 0.75em;
+    text-align: center;
+    font-size: 0.5em;
 }
