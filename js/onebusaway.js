@@ -64,9 +64,9 @@ function loadOneBusAway(stopId, routeFilter) {
     });
 }
 
-function showBusesForStops(stopIds) {
-    console.log(stopIds);
+function showBusesForStops() {
+    stopIds = [13721, 18120]
     for (index in stopIds) {
-        loadOneBusAway(stopIds[index], ["271", "550E"]);
+        loadOneBusAway(stopIds[index], ["44", "D Line"]);
     }
 }

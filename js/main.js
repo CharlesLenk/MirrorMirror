@@ -11,8 +11,8 @@ $(document).ready(function () {
     loadGreeting();
     setInterval(loadGreeting, 8640000);
 
-    showBusesForStops([67655, 67640]);
-    setInterval(showBusesForStops, 60000, [67655, 67640]);
+    showBusesForStops();
+    setInterval(showBusesForStops, 60000);
 });
 
 function updateDate() {
