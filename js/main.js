@@ -16,14 +16,13 @@ $(document).ready(function () {
 });
 
 function updateDate() {
-    let dateTime = moment(new Date());
     let date = $('#date');
-    date.text(dateTime.format('dddd, MMMM Do'));
+    date.text(Intl.DateTimeFormat('en', { weekday: 'long', month: 'long', day: 'numeric' }).format(new Date()));
     let time = $('#time');
-    time.text(dateTime.format('hh:mm A'));
+    time.text(Intl.DateTimeFormat('en', { hour: `numeric`, minute: `numeric`, hour12: true }).format(new Date()));
 }
 
-var greetings = [
+let general_greetings = [
     "You look amazing today.",
     "It's a beautiful day!",
     "You're cool!",
@@ -31,6 +30,11 @@ var greetings = [
 ];
 
 function loadGreeting() {
-    var index = Math.floor(Math.random() * 4);
-    $("#greeting").text(greetings[index]);
+    var current_greetings = general_greetings.slice();
+    if ((new Date()).getDay() == 6) {
+        current_greetings.push("It's Friday!");
+    }
+
+    var index = Math.floor(Math.random() * current_greetings.length);
+    $("#greeting").text(current_greetings[index]);
 }
