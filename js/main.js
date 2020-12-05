@@ -9,7 +9,7 @@ $(document).ready(function () {
     }, 600000);
 
     loadGreeting();
-    setInterval(loadGreeting, 21600);
+    setInterval(loadGreeting, 1800000);
 
     showBusesForStops();
     setInterval(showBusesForStops, 60000);
