@@ -9,7 +9,7 @@ $(document).ready(function () {
     }, 600000);
 
     loadGreeting();
-    setInterval(loadGreeting, 8640000);
+    setInterval(loadGreeting, 21600);
 
     showBusesForStops();
     setInterval(showBusesForStops, 60000);
@@ -26,15 +26,28 @@ let general_greetings = [
     "You look amazing today.",
     "It's a beautiful day!",
     "You're cool!",
-    "Today's a good day."
+    "Today's a good day.",
+    "You're the fairest of them all!"
 ];
 
 function loadGreeting() {
     var current_greetings = general_greetings.slice();
-    if ((new Date()).getDay() == 6) {
-        current_greetings.push("It's Friday!");
+    switch((new Date()).getDay()) {
+        case 3:
+            current_greetings.push("Happy Hump Day!"); 
+            break;
+        case 4:
+            current_greetings.push("It's Friday Eve!");
+            break;
+        case 5:
+            current_greetings.push("It's Friday!");
+            break;
     }
 
-    var index = Math.floor(Math.random() * current_greetings.length);
-    $("#greeting").text(current_greetings[index]);
+    if ((new Date()).getDay() == 0) {
+        $("#greeting").text("Happy Birthday, Charlotte! :)");
+    } else {
+        var index = Math.floor(Math.random() * current_greetings.length);
+        $("#greeting").text(current_greetings[index]);
+    }
 }
