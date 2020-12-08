@@ -44,10 +44,6 @@ function loadGreeting() {
             break;
     }
 
-    if ((new Date()).getDay() == 0) {
-        $("#greeting").text("Happy Birthday, Charlotte! :)");
-    } else {
-        var index = Math.floor(Math.random() * current_greetings.length);
-        $("#greeting").text(current_greetings[index]);
-    }
+    var index = Math.floor(Math.random() * current_greetings.length);
+    $("#greeting").text(current_greetings[index]);
 }
