@@ -5,15 +5,6 @@ Install Unclutter
 apt-get install unclutter
 ```
 
-Update PI Configuration
-```
-sudo nano /boot/config.txt
-```
-```
-# 1=90 degrees; 3 = 270 degrees
-display_rotate=3
-```
-
 Update PI autostart
 ```
 ~/.config/lxsession/LXDE-pi/autostart
@@ -32,4 +23,7 @@ Update PI autostart
 
 # Run startup script on boot
 @sh /home/pi/mirror/startup.sh > /home/pi/startup-log.txt
+
+# Rotate the display to portrait
+xrandr --output HDMI-1 --rotate left
 ```
