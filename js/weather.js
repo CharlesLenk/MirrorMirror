@@ -32,7 +32,6 @@ function updateWeather(location, apiKey) {
                 $("#" + name + "high").text(weather.forecast[i].high);
                 $("#" + name + "low").text(weather.forecast[i].low);
                 skycons.set(name + "icon-forecast", weather.forecast[i].icon);
-                skycons.play();
             }
             skycons.set("weather-icon", weather.icon);
             skycons.play();
