@@ -6,7 +6,7 @@ function initWeather() {
         let name = "weather-row-" + i + "-";
         html += '<tr>';
         html += '<td id="' + (name + "day") + '">' + name + '</td>';
-        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="40" height="40"></canvas></td>';
+        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="60" height="60"></canvas></td>';
         html += '<td id="' + (name + "high") + '"></td>';
         html += '<td class="low" id="' + (name + "low") + '"></td>';
         html += '</tr>';
@@ -28,7 +28,7 @@ function updateWeather(location, apiKey) {
             
             for (var i = 1; i <= 5; i++) {
                 let name = "weather-row-" + i + "-";
-                $("#" + name + "day").text(weather.forecast[i].day + ".");
+                $("#" + name + "day").text(weather.forecast[i].day);
                 $("#" + name + "high").text(weather.forecast[i].high);
                 $("#" + name + "low").text(weather.forecast[i].low);
                 skycons.set(name + "icon-forecast", weather.forecast[i].icon);

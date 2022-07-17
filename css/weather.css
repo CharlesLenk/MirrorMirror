@@ -1,9 +1,7 @@
 #weather {
-    width: 500px;
-    height: 600px;
     float: right;
     text-align: right;
-    margin-right: 2em;
+    margin-top: 1em;
 }
 
 #weather h2 {
@@ -19,14 +17,14 @@
     height: 20px;
     width: 100%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.6em;
     padding: 8px 0 16px 16px;
     display: inline-block;
 }
 
 #weather table {
     text-align: left;
-    font-size: 1.25em;
+    font-size: 2em;
     float: right;
     padding: 1em 0 0 0;
 }
@@ -36,7 +34,7 @@
 }
 
 .low {
-    opacity: 0.60;
+    opacity: 0.70;
 }
 
 #region {
