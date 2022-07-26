@@ -25,5 +25,5 @@ Update PI autostart
 @sh /home/pi/mirror/startup.sh > /home/pi/startup-log.txt
 
 # Rotate the display to portrait
-xrandr --output HDMI-1 --rotate left
+xrandr --output DSI-1 --rotate left
 ```
