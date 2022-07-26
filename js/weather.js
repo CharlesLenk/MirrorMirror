@@ -6,7 +6,7 @@ function initWeather() {
         let name = "weather-row-" + i + "-";
         html += '<tr>';
         html += '<td id="' + (name + "day") + '">' + name + '</td>';
-        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="60" height="60"></canvas></td>';
+        html += '<td><canvas id="' + (name + "icon-forecast") + '" width="50" height="50"></canvas></td>';
         html += '<td id="' + (name + "high") + '"></td>';
         html += '<td class="low" id="' + (name + "low") + '"></td>';
         html += '</tr>';

@@ -10,7 +10,10 @@ $(document).ready(function () {
 });
 
 function updateDate() {
-    let dateTime = $('#dateTime');
-    dateTime.text(Intl.DateTimeFormat('en', { weekday: 'long', month: 'long', day: 'numeric', hour: `numeric`, minute: `numeric`, hour12: true }).format(new Date()));
+    let date = $('#date');
+    date.text(Intl.DateTimeFormat('en', { weekday: 'long', month: 'long', day: 'numeric' }).format(new Date()));
+    
+    let time = $('#time');
+    time.text(Intl.DateTimeFormat('en', { hour: `numeric`, minute: `numeric`, hour12: true }).format(new Date()));
 }
 

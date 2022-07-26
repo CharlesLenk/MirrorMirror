@@ -1,38 +1,30 @@
 #temperature {
     float: right;
     width: 50%;
-    margin: -0.15em 0 0 0;
+    margin: 0.6em 0 -0.2em 0;
     color: #F8F8FF;
-    font-size: 100px;
+    font-size: 6em;
     font-weight: 300;
 }
 
 #weatherDynamic {
     font-family: 'Open Sans', sans-serif;
-    font-size: 3em;
+    font-size: 2.5em;
+    margin: -1em 0 0 0;
 }
 
-#weather div {
+#weatherTable {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.6em;
-    padding: 8px 0 16px 16px;
+    font-size: 2.5em;
     display: inline-block;
-}
-
-#weather table {
     text-align: left;
-    font-size: 2em;
-    float: right;
+    margin: 0.3em 0 0 0;
 }
 
-#weather td {
+#weatherTable td {
     padding: .25em 0 0 .5em;
 }
 
 .low {
     opacity: 0.70;
-}
-
-#region {
-    font-size: 5em;
 }
