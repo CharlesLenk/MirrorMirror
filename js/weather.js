@@ -2,10 +2,10 @@ let skycons = new Skycons({"color": "white"});
 
 function initWeather() {
     let html = '';
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 0; i < 4; i++) {
         let name = "weather-row-" + i + "-";
         html += '<tr>';
-        html += '<td id="' + (name + "day") + '">' + name + '</td>';
+        html += '<td id="' + (name + "day") + '"></td>';
         html += '<td><canvas id="' + (name + "icon-forecast") + '" width="50" height="50"></canvas></td>';
         html += '<td id="' + (name + "high") + '"></td>';
         html += '<td class="low" id="' + (name + "low") + '"></td>';
@@ -26,7 +26,7 @@ function updateWeather(location, apiKey) {
             html += '<div><i class="fa fa-angle-up"></i>  High ' + weather.high + ' <i class="fa fa-angle-down"></i> Low ' + weather.low + '</div>';
             $("#weatherDynamic").html(html);
             
-            for (var i = 1; i <= 5; i++) {
+            for (var i = 0; i < weather.forecast.length; i++) {
                 let name = "weather-row-" + i + "-";
                 $("#" + name + "day").text(weather.forecast[i].day);
                 $("#" + name + "high").text(weather.forecast[i].high);

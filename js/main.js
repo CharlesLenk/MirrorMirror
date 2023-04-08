@@ -3,9 +3,9 @@ $(document).ready(function () {
     setInterval(updateDate, 15000);
 
     initWeather();
-    updateWeather('47.6101,-122.2015', darkSkyApiKey);
+    updateWeather('47.6101,-122.2015', tomorrowIoApiKey);
     setInterval(function() {
-        updateWeather('47.6101,-122.2015', darkSkyApiKey);
+        updateWeather('47.6101,-122.2015', tomorrowIoApiKey);
     }, 600000);
 });
 
