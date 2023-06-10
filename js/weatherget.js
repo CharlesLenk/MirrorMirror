@@ -13,7 +13,7 @@
 
     function getDay(date) {
         let days =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        return days[date.getDay()];
+        return days[date.getUTCDay()];
     }
 
     function toTitleCase(str) {
