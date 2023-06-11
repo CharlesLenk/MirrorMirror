@@ -22,7 +22,7 @@ Update PI autostart
 @unclutter -idle 0
 
 # Run startup script on boot
-@sh /home/pi/mirror/startup.sh > /home/pi/startup-log.txt
+@sh ~/MirrorMirror/startup.sh > ~/startup-log.txt
 
 # Rotate the display to portrait
 xrandr --output DSI-1 --rotate left

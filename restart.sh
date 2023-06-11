@@ -1,3 +1,3 @@
-git -C ~/mirror/ pull
+git -C ~/MirrorMirror/ pull
 pkill -f "chromium-browser"
-DISPLAY=:0 chromium-browser ~/mirror/index.html --incognito --noerrdialogs --kiosk &
+DISPLAY=:0 chromium-browser ~/MirrorMirror/index.html --incognito --noerrdialogs --kiosk &

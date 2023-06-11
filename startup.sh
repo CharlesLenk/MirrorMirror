@@ -1,2 +1,2 @@
-git -C ~/mirror/ pull
-chromium-browser ~/mirror/index.html --incognito --noerrdialogs --kiosk
+git -C ~/MirrorMirror/ pull
+chromium-browser ~/MirrorMirror/index.html --incognito --noerrdialogs --kiosk
