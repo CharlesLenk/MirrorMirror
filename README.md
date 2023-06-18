@@ -1,13 +1,15 @@
 # MirrorMirror
 
-Install Unclutter
+Install dependencies
 ```
-apt-get install unclutter
+sudo apt install unclutter
+sudo apt install chromium-browser
 ```
 
 Update PI autostart
 ```
-~/.config/lxsession/LXDE-pi/autostart
+mkdir -p ~/.config/lxsession/LXDE-pi
+nano ~/.config/lxsession/LXDE-pi/autostart
 ```
 ```
 # Disable screensaver
@@ -22,8 +24,6 @@ Update PI autostart
 @unclutter -idle 0
 
 # Run startup script on boot
-@sh ~/MirrorMirror/startup.sh > ~/startup-log.txt
-
-# Rotate the display to portrait
-xrandr --output DSI-1 --rotate left
+@sh /home/[username]/MirrorMirror/startup.sh
 ```
+ 
