@@ -1,29 +1,19 @@
 # MirrorMirror
 
-Install dependencies
-```
-sudo apt install unclutter
-sudo apt install chromium-browser
-```
-
 Update PI autostart
 ```
-mkdir -p ~/.config/lxsession/LXDE-pi
-nano ~/.config/lxsession/LXDE-pi/autostart
+nano .config/wayfire.ini
 ```
 ```
-# Disable screensaver
-#@xscreensaver -no-splash
+[output:DSI-1]
+mode = 800x480M@60
+transform = 90
 
-# Disable power saving
-@xset s noblank
-@xset s off
-@xset -dpms
-
-# Hide mouse pointer
-@unclutter -idle 0
-
-# Run startup script on boot
-@sh /home/[username]/MirrorMirror/startup.sh
+[autostart]
+panel = wf-panel-pi
+background = pcmanfm --desktop --profile LXDE-pi
+xdg-autostart = lxsession-xdg-autostart
+update-repo = git -C ~/MirrorMirror/ pull
+kiosk = chromium-browser ~/MirrorMirror/index.html --incognito --noerrdialogs --kiosk --start-maximized
 ```
  

@@ -1,0 +1,2 @@
+let tomorrowIoApiKey = '';
+let gpsLocation = '';
